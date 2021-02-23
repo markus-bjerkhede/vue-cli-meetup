@@ -1,0 +1,26 @@
+[
+    {
+        "id": 1,
+        "name": "Workout",
+        "place": "Sportvägen",
+        "img": "https://cdn.pixabay.com/photo/2015/01/09/11/22/fitness-594143_960_720.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dinner",
+        "place": "Näset",
+        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dinner",
+        "place": "Näset",
+        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Dinner",
+        "place": "Näset",
+        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
+    }
+]
