@@ -1,16 +1,20 @@
 import { shallowMount } from '@vue/test-utils'
-import Signup from '@/components/Signup.vue';
+import SignUp from '@/components/Signup.vue';
 
-describe('Signup.vue', () => {
-  it('Should display the upcomming meetups names when you enter the site', () => {
-    const wrapper = shallowMount(Signup, {
-      propsData: {
-        meetup: fakeData()
-      }
+describe('SignUp.vue', () => {
+    it('Should show sign up button if not signed up', () => {
+        const wrapper = shallowMount(SignUp, {
+
+        });
+        localStorage.setItem("signedUp", getFakeSignups());
+        expect(wrapper.find('.sign-up-button').exists()).toBe(true);
     });
-   
-    const expected = "Workout";
-    const actual = wrapper.find(".name").text();
-   
-expect(actual).toMatch(expected);
-  });
+});
+function getFakeSignups() {
+    let signups =
+        [{
+            "meetingId": 1,
+            "user": "Markus"
+        }];
+    return signups
+}

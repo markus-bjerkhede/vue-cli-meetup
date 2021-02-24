@@ -1,9 +1,11 @@
 <template>
     <router-link to="/">Home</router-link>
+    <login />
     <router-view :meetups="meetups" />
 </template>
 <script>
 import meetups from "@/assets/meetups.json";
+import Login from './components/Login.vue';
 export default {
   name: "App",
   data() {
@@ -12,7 +14,7 @@ export default {
     };
   },
 
-  components: {},
+  components: {Login},
 };
 </script>
 
