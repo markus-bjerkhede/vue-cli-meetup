@@ -1,9 +1,9 @@
 <template>
   <div class="login-view" v-if="isLoggedIn">
-    <p>User: {{ username }}</p>
+    <p class="login-name">User: {{ username }}</p>
   </div>
   <div class="login-form" v-else>
-    <button @click="login()">Login</button>
+    <button class="login-button" @click="login()"> Login </button>
     <input v-model="username" placeholder="Enter valid username" />
   </div>
 </template>
