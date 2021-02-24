@@ -4,7 +4,7 @@
   </div>
   <div class="login-form" v-else>
     <button class="login-button" @click="login()"> Login </button>
-    <input v-model="username" placeholder="Enter valid username" />
+    <input class="input-name" v-model="username" placeholder="Enter valid username" />
   </div>
 </template>
 

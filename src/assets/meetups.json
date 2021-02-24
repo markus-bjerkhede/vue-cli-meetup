@@ -3,24 +3,24 @@
         "id": 1,
         "name": "Workout",
         "place": "Sportvägen",
-        "img": "https://cdn.pixabay.com/photo/2015/01/09/11/22/fitness-594143_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2015/01/09/11/22/fitness-594143_960_720.jpg",
+        "description": "Workout like never before! \n Join us for the greatest workout of the year. We start easy and accessible and then we ramp it up towards the end. You join and keep up for as long as you can. Our goal is for everyone to be able to at the end of the day feel good about themselves.",
+        "date": "03/03/21"
     },
     {
         "id": 2,
         "name": "Dinner",
         "place": "Näset",
-        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg",
+        "description":"Tired of living life alone during the crisis? Come eat at our amazing resturant 'Great FKN Food'. We've taken all the precations necessary for you and our other guests to enjoy a corona friendly experience with food, drink and entertainment.   ",
+        "date": "03/03/21"
     },
     {
         "id": 3,
         "name": "Dinner",
         "place": "Näset",
-        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
-    },
-    {
-        "id": 4,
-        "name": "Dinner",
-        "place": "Näset",
-        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg"
+        "img": "https://cdn.pixabay.com/photo/2015/03/26/10/07/restaurant-690975_960_720.jpg",
+        "description": "asd",
+        "date": "03/03/21"
     }
 ]

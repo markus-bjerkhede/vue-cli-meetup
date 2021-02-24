@@ -8,16 +8,17 @@ describe('Login.vue', () => {
         });
         expect(wrapper.find('.login-form').exists()).toBe(true);
     });
-    it('Should show login view', async () => {
+    it('Should show login view when user has logged in', async () => {
         const wrapper = shallowMount(Login, {
-           
+
         });
-        const expected = "Markus"
-        wrapper.find(".login-form").find("input").setValue(expected)
-        //await input.setValue(expected)
-        await wrapper.find(".login-button").trigger('click')
-    
+        expect(wrapper.find('.login-view').exists()).toBe(false);
+        const expected = "Markus";
+        wrapper.find(".login-form").find("input").setValue(expected);
+        await wrapper.find(".login-button").trigger('click');
+
         const actual = wrapper.find(".login-name").text();
+        expect(wrapper.find('.login-view').exists()).toBe(true);
         expect(actual).toMatch(expected);
     });
 });

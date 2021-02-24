@@ -1,11 +1,16 @@
 <template>
+  <div>
     <router-link to="/">Home</router-link>
-    <login />
-    <router-view :meetups="meetups" />
+    <Login />
+  </div>
+  <div>
+    <img src="./assets/logo.png" alt="logo" />
+  </div>
+  <router-view :meetups="meetups" />
 </template>
 <script>
 import meetups from "@/assets/meetups.json";
-import Login from './components/Login.vue';
+import Login from "./components/Login.vue";
 export default {
   name: "App",
   data() {
@@ -14,7 +19,7 @@ export default {
     };
   },
 
-  components: {Login},
+  components: { Login },
 };
 </script>
 
