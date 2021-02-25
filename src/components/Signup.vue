@@ -1,5 +1,10 @@
 <template>
-  <button @click="signUp()" v-if="signedUp()" class="sign-up-button">Signin</button>
+  <div class="signed-up" v-if="isSignedUp">
+    <p>You are signed: {{this.username}}</p>
+  </div>
+  <div class="not-signed-up" v-if="!isSignedUp">
+    <button @click="signUp()" class="sign-up-button">Signin</button>
+  </div>
 </template>
 
 <script>
@@ -8,13 +13,16 @@ export default {
     return {
       isSignedUp: false,
       username: String,
+      signUps: []
     };
   },
   props: {
     meetupId: Number,
   },
   beforeMount() {
-   this.setUsername()
+    this.setUsername();
+    this.checkIfSignedUp();
+    this.fetchSignUps();
   },
   methods: {
     setUsername() {
@@ -25,27 +33,29 @@ export default {
         this.username = username;
       }
     },
-    async signedUp() {
-      let signedUp = this.getSignUps();
-    //   await signedUp.array.forEach((element) => { 
-    //       if (element.username === this.username && element.meetupId === this.meetupId) {
-    //           this.isSignedUp = true
-    //       }
-          
-    //   });
+    checkIfSignedUp() {
+      if (this.signUps) {
+        this.signUps.forEach((signUp) => {
+          if (signUp.meetupId === this.meetupId && signUp.name === this.username) {
+            this.isSignedUp = true;
+          }
+        });
+      }
     },
     signUp() {
-      this.setUsername()  
-      let signedUp = this.getSignUps();
+      this.setUsername();
+      let signedUp = this.signUps
       if (signedUp === null) {
         signedUp = [];
       }
       let signUp = { name: this.username, meetupId: this.meetupId };
+      this.signUps = signedUp 
       signedUp.push(signUp);
       localStorage.setItem("signedUp", JSON.stringify(signedUp));
+      this.isSignedUp = true;
     },
-    getSignUps() {
-      return JSON.parse(localStorage.getItem("signedUp"));
+    fetchSignUps() {
+      this.signUps = JSON.parse(localStorage.getItem("signedUp"));
     },
   },
 };

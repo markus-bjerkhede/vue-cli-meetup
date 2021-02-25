@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import Signup from '@/components/SignUp.vue'
+import Signup from './SignUp'
 export default {
   components: { Signup },
    props: {
