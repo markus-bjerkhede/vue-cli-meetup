@@ -1,5 +1,5 @@
 <template>
-  <button @click="signUp()" class="sign-up-button">Signin</button>
+  <button @click="signUp()" v-if="signedUp()" class="sign-up-button">Signin</button>
 </template>
 
 <script>
@@ -25,12 +25,14 @@ export default {
         this.username = username;
       }
     },
-    signedUp() {
+    async signedUp() {
       let signedUp = this.getSignUps();
-      let username = localStorage.getItem("username");
-      signedUp.array.forEach((element) => {
-        console.log(element.username);
-      });
+    //   await signedUp.array.forEach((element) => { 
+    //       if (element.username === this.username && element.meetupId === this.meetupId) {
+    //           this.isSignedUp = true
+    //       }
+          
+    //   });
     },
     signUp() {
       this.setUsername()  

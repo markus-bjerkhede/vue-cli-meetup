@@ -3,7 +3,7 @@
   <h1 class="name">{{ meetup.name }}</h1>
   <img class="img" :src="meetup.img" alt="" />
   <h1 class="place">{{ meetup.place }}</h1>
-  <Signup :meetupId="meetup.Id" />
+  <Signup :meetupId="meetup.id" />
   </article>
 </template>
 
