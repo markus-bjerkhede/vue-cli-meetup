@@ -10,7 +10,7 @@
         <p class="description">{{ meetup.description }}</p>
         <h3 class="date">{{ meetup.date }}</h3>
         <button class="review-button" @click="review()">Review</button>
-        <Review v-for="review in getReviewsById()" :key="review.meetupId" :review="review"/>
+        <Review v-for="review in meetupReviews" :key="review.meetupId" :review="review"/>
       </div>
     </div>
     <article>
@@ -28,6 +28,7 @@ export default {
     const meetupId = Number(this.$route.query.meetupId);
     this.meetup = meetupsFile.find((x) => x.id === meetupId);
     this.fetchReviews();
+    this.fetchMeetupReviews();
   },
   data() {
     return {
@@ -36,15 +37,16 @@ export default {
       reviews: Array,
       username: String,
       meetup: Object,
+      meetupReviews: Array
     };
   },
   methods: {
-    getReviewsById() {
-      let reviews = []
+    fetchMeetupReviews() {
+      let reviews = [];
       if (this.reviews) {
-        reviews = this.reviews.find((x) => x.id === this.meetup.Id);   
+        reviews = this.reviews.filter((x) => x.id === this.meetup.Id);
       }
-      return reviews
+      this.meetupReviews = reviews;
     },
     setUsername() {
       let username = localStorage.getItem("username");
@@ -69,6 +71,7 @@ export default {
       this.reviews = reviews;
       localStorage.setItem("reviews", JSON.stringify(reviews));
       this.hasReviewed = true;
+      this.fetchMeetupReviews();
     },
     fetchReviews() {
       this.reviews = JSON.parse(localStorage.getItem("reviews"));
