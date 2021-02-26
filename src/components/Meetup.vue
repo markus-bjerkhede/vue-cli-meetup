@@ -11,9 +11,9 @@
 </template>
 
 <script>
-  import Signup from "@/components/SignUp.vue";
+  import SignUp from "@/components/SignUp.vue";
   export default {
-    components: { Signup },
+    components: { SignUp },
     props: {
       meetup: Object,
     },
