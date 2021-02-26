@@ -1,10 +1,12 @@
 <template>
+<div class="top-right">
   <div class="login-view" v-if="isLoggedIn">
     <p class="login-name">User: {{ username }}</p>
   </div>
   <div class="login-form" v-else>
     <button class="login-button" @click="login()"> Login </button>
     <input class="input-name" v-model="username" placeholder="Enter valid username" />
+  </div>
   </div>
 </template>
 
@@ -33,6 +35,18 @@ export default {
   },
 };
 </script>
-
-<style>
+  
+<style scoped>
+.input-name{
+  margin: 10px;
+  height: 25px;
+}
+.login-button {
+    font-weight: bold;
+    color: black;
+    background-color: #ddddddea;
+    padding: 0.4rem;
+    border-style: none;
+    border-radius: 0.5rem;
+}
 </style>

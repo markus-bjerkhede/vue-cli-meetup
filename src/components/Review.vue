@@ -1,6 +1,6 @@
 <template>
 <article>
-    <button @click="review()">Review</button>
+    <button class="review-button" @click="review()">Review</button>
     <input v-model="reviewText" type="text">
 </article>
 </template>
@@ -47,4 +47,12 @@ export default {
 </script>
 
 <style>
+.sign-up-button {
+  font-weight: bold;
+  color: black;
+  background-color: #ddddddea;
+  padding: 0.4rem;
+  border-style: none;
+  border-radius: 0.5rem;
+}
 </style>

@@ -1,17 +1,21 @@
 <template>
-  <article class="meetup-container">
-    <div class="flex-container">
-      <h1 class="name">{{ meetup.name }}</h1>
-      <img class="img" :src="meetup.img" alt="" />
-      <h1 class="place">{{ meetup.place }}</h1>
-      <p class="description">{{ meetup.description }}</p>
-      <h3 class="date">{{ meetup.date }}</h3>
+<article class="grid-container-media">
+    <h1 class="name">{{ meetup.name }}</h1>
+    <div class="grid-container">
+      <div class="left-img">
+        <img class="img" :src="meetup.img" alt="" />
+      </div>
+      <div class="right-column">
+        <h1 class="place">{{ meetup.place }}</h1>
+        <p class="description">{{ meetup.description }}</p>
+        <h3 class="date">{{ meetup.date }}</h3>
+        <button @click="review()">Review</button>
+      </div>
     </div>
     <article>
-      <button @click="review()">Review</button>
       <input v-model="reviewText" type="text" />
     </article>
-  </article>
+    </article>
 </template>
 
 <script>
@@ -63,6 +67,21 @@ export default {
 </script>
 
 <style scoped>
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-auto-rows: min-content;
+  margin: 2, 0, 2, 0;
+  border-radius: 3%;
+}
+.left-img {
+  margin-left: 16rem;
+  grid-column-start: span 1;
+}
+.right-column {
+  margin-right: 20rem;
+  grid-column-start: span 1;
+}
 .flex-container {
   display: flex;
   flex-direction: column;
@@ -73,5 +92,24 @@ export default {
 img {
   max-height: 300px;
   max-width: 400px;
+}
+
+@media screen and (max-width: 1200px) {
+  .grid-container-media, .grid-container{
+  display:grid none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  justify-content: space-around;
+  }
+  .left-img {
+  margin: 0;
+  grid-column-start: span 1;
+}
+.right-column {
+  margin: 0;
+  grid-column-start: span 1;
+}
 }
 </style>

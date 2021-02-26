@@ -1,9 +1,9 @@
 <template>
   <div class="signed-up" v-if="isSignedUp">
-    <p class="display-username">You are signed: {{this.username}}</p>
+    <p class="display-username">Signed-up as: {{this.username}}</p>
   </div>
   <div class="not-signed-up" v-if="!isSignedUp">
-    <button @click="signUp()" class="sign-up-button">Signin</button>
+    <button @click="signUp()" class="sign-up-button">Sign-up</button>
   </div>
 </template>
 
@@ -62,4 +62,12 @@
 </script>
 
 <style>
+.sign-up-button {
+  font-weight: bold;
+  color: black;
+  background-color: #ddddddea;
+  padding: 0.4rem;
+  border-style: none;
+  border-radius: 0.5rem;
+}
 </style>
