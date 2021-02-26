@@ -6,12 +6,12 @@
       <h1 class="place">{{ meetup.place }}</h1>
     </div>
 
-    <Signup :meetupId="meetup.id" />
+    <SignUp :meetupId="meetup.id" />
   </article>
 </template>
 
 <script>
-  import SignUp from "@/components/SignUp.vue";
+  import SignUp from "./SignUp.vue";
   export default {
     components: { SignUp },
     props: {

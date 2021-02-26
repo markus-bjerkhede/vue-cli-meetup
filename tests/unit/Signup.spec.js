@@ -1,5 +1,5 @@
 import { shallowMount } from '@vue/test-utils'
-import SignUp from '@/components/Signup.vue';
+import SignUp from '@/components/SignUp.vue';
 
 describe('SignUp.vue', () => {
     it('Should show signed up text signed up', () => {
