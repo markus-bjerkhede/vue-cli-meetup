@@ -9,14 +9,15 @@
         <h1 class="place">{{ meetup.place }}</h1>
         <p class="description">{{ meetup.description }}</p>
         <h3 class="date">{{ meetup.date }}</h3>
-        <button class="review-button" @click="review()">Review</button>
-        <Review v-for="review in meetupReviews" :key="review.meetupId" :review="review"/>
       </div>
     </div>
     <article>
-      <input v-model="reviewText" type="text" />
+      <button class="review-button" @click="review()">Submit Review</button>
+      <input class="review-text" v-model="reviewText" type="text" />
     </article>
+    <Review v-for="review in meetupReviews" :key="review.meetupId" :review="review"/>
   </article>
+  
 </template>
 
 <script>
@@ -82,6 +83,7 @@ export default {
 
 <style scoped>
 .grid-container {
+  width: 100%;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-auto-rows: min-content;
@@ -89,6 +91,7 @@ export default {
   border-radius: 3%;
 }
 .review-button {
+  margin: 1rem;
   font-weight: bold;
   color: black;
   background-color: #ddddddea;
@@ -110,6 +113,9 @@ export default {
   align-items: center;
   justify-content: center;
   justify-content: space-around;
+}
+.review-text{
+  height: 30px;
 }
 img {
   max-height: 300px;
