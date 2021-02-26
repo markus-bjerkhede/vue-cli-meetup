@@ -1,5 +1,5 @@
 <template>
-<article class="grid-container-media">
+  <article class="grid-container-media">
     <h1 class="name">{{ meetup.name }}</h1>
     <div class="grid-container">
       <div class="left-img">
@@ -9,25 +9,29 @@
         <h1 class="place">{{ meetup.place }}</h1>
         <p class="description">{{ meetup.description }}</p>
         <h3 class="date">{{ meetup.date }}</h3>
-        <button @click="review()">Review</button>
+        <button class="review-button" @click="review()">Review</button>
+        <Review v-for="review in getReviewsById()" :key="review.meetupId" :review="review"/>
       </div>
     </div>
     <article>
       <input v-model="reviewText" type="text" />
     </article>
-    </article>
+  </article>
 </template>
 
 <script>
 import meetupsFile from "../assets/meetups";
+import Review from "../components/Review.vue";
 export default {
+  components: { Review },
   beforeMount() {
-    let meetupId = this.$route.query.meetupId;
-    this.meetup = meetupsFile.find((x) => x.id === Number(meetupId));
+    const meetupId = Number(this.$route.query.meetupId);
+    this.meetup = meetupsFile.find((x) => x.id === meetupId);
+    this.fetchReviews();
   },
   data() {
     return {
-      reviewText: String,
+      reviewText: "",
       hasReviewed: false,
       reviews: Array,
       username: String,
@@ -35,6 +39,13 @@ export default {
     };
   },
   methods: {
+    getReviewsById() {
+      let reviews = []
+      if (this.reviews) {
+        reviews = this.reviews.find((x) => x.id === this.meetup.Id);   
+      }
+      return reviews
+    },
     setUsername() {
       let username = localStorage.getItem("username");
       if (!username) {
@@ -51,15 +62,15 @@ export default {
       }
       let review = {
         username: this.username,
-        meetupId: this.meetupId,
+        meetupId: this.meetup.id,
         text: this.reviewText,
       };
-      this.reviews = reviews;
       reviews.push(review);
+      this.reviews = reviews;
       localStorage.setItem("reviews", JSON.stringify(reviews));
       this.hasReviewed = true;
     },
-    fetchReview() {
+    fetchReviews() {
       this.reviews = JSON.parse(localStorage.getItem("reviews"));
     },
   },
@@ -73,6 +84,14 @@ export default {
   grid-auto-rows: min-content;
   margin: 2, 0, 2, 0;
   border-radius: 3%;
+}
+.review-button {
+  font-weight: bold;
+  color: black;
+  background-color: #ddddddea;
+  padding: 0.4rem;
+  border-style: none;
+  border-radius: 0.5rem;
 }
 .left-img {
   margin-left: 16rem;
@@ -95,21 +114,22 @@ img {
 }
 
 @media screen and (max-width: 1200px) {
-  .grid-container-media, .grid-container{
-  display:grid none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  justify-content: space-around;
+  .grid-container-media,
+  .grid-container {
+    display: grid none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-around;
   }
   .left-img {
-  margin: 0;
-  grid-column-start: span 1;
-}
-.right-column {
-  margin: 0;
-  grid-column-start: span 1;
-}
+    margin: 0;
+    grid-column-start: span 1;
+  }
+  .right-column {
+    margin: 0;
+    grid-column-start: span 1;
+  }
 }
 </style>
