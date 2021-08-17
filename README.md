@@ -1,6 +1,7 @@
 # vue-cli-meetup
 Markus Bjerkhede
-https://dashboard.heroku.com/apps/vue-cli-meetup //Hade stora problem med detta. Av någon anledning så står den och bygger även fast jag uppdaterade för typ 3 timmar seda. Så vet inte om den fungerar även fast jag gjorde rätt? Vi gick ju igenom det tillsammans.
+
+[meetup-repo](https://github.com/markus-bjerkhede/vue-cli-meetups)
 
 Lvlups: Började tyvärr sent med detta projekt pga saker som hänt med en nära släkting ang corona. Satsade på att klara av kraven, hoppas jag löser det. 
 
