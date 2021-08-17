@@ -1,7 +1,7 @@
 # vue-cli-meetup
 Markus Bjerkhede
 
-[meetup-repo](https://github.com/markus-bjerkhede/vue-cli-meetups)
+[meetup-repo](https://github.com/markus-bjerkhede/vue-cli-meetup)
 
 Lvlups: Började tyvärr sent med detta projekt pga saker som hänt med en nära släkting ang corona. Satsade på att klara av kraven, hoppas jag löser det. 
 
