@@ -82,6 +82,12 @@ export default {
 </script>
 
 <style scoped>
+.grid-container-media{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .grid-container {
   width: 100%;
   display: grid;
@@ -123,7 +129,6 @@ img {
 @media screen and (max-width: 1200px) {
   .grid-container-media,
   .grid-container {
-    display: grid none;
     display: flex;
     flex-direction: column;
     align-items: center;

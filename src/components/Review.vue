@@ -1,10 +1,10 @@
 <template>
-  <div class="flex-wrapper">
+  
       <div class="review">
       <p>User: {{ review.username }}</p>
       <p>{{ review.text }}</p>
       </div>
-    </div>
+   
 </template>
 
 <script>
@@ -16,12 +16,16 @@ export default {
 </script>
 
 <style>
-.flex-wrapper {
+.review {
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;  
   border: 1px solid black;
   box-sizing: border-box;
-  margin: 5px;
-}
+  align-items: center;
+  margin: 1rem;
+  padding: 1rem;
+  width: 50%;
+  }
 
 </style>
