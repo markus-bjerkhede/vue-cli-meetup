@@ -12,9 +12,9 @@
       </div>
     </div>
     <article>
-      <button class="review-button" @click="review()">Submit Review</button>
-      <input class="review-text" v-model="reviewText" type="text" />
+      <textarea style="resize: none;" rows="10" cols="70" class="review-text" v-model="reviewText" />
     </article>
+    <button class="review-button" @click="review()">Submit Review</button>
     <Review v-for="review in meetupReviews" :key="review.meetupId" :review="review"/>
   </article>
   
@@ -114,9 +114,7 @@ export default {
   justify-content: center;
   justify-content: space-around;
 }
-.review-text{
-  height: 30px;
-}
+
 img {
   max-height: 300px;
   max-width: 400px;
