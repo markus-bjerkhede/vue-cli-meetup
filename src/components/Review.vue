@@ -1,5 +1,4 @@
 <template>
-  
       <div class="review">
       <p>User: {{ review.username }}</p>
       <p>{{ review.text }}</p>

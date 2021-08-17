@@ -5,7 +5,6 @@
       <img class="img" :src="meetup.img" alt="" />
       <h1 class="place">{{ meetup.place }}</h1>
     </div>
-
     <SignUp :meetupId="meetup.id" />
   </article>
 </template>

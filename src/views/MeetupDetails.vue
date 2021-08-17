@@ -30,9 +30,11 @@ export default {
     this.meetup = meetupsFile.find((x) => x.id === meetupId);
     this.fetchReviews();
     this.fetchMeetupReviews();
+    console.log(this.meetupId)
   },
   data() {
     return {
+      meetupId: "",
       reviewText: "",
       hasReviewed: false,
       reviews: Array,
@@ -68,6 +70,7 @@ export default {
         meetupId: this.meetup.id,
         text: this.reviewText,
       };
+
       reviews.push(review);
       this.reviews = reviews;
       localStorage.setItem("reviews", JSON.stringify(reviews));
